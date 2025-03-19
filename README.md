@@ -126,3 +126,27 @@ Todos os posts coletados:
 (2, 'Brazil', 'https://en.wikipedia.org/wiki/Brazil', 'August 6, 2022', '2025-03-18 14:30:00')
 ...
 ```
+
+## 📱 Banco de dados Relacional (SQLite)
+
+Para este projeto, optei por utilizar um banco de dados **relacional (SQL)** em vez de um banco não relacional(NoSQL) ou um simples armazenamento em arquivo por alguns motivos essenciais:
+
+### 1️⃣ Estruturação e Integridade dos Dados
+
+Como os dados coletados possuem um formato bem definido (título, conteúdo, URL, data de postagem e data de coleta), um banco relacional permite organizá-los de maneira estruturada em tabelas, garantindo consistência e integridade.
+Em um banco NoSQL (como MongoDB), os dados seriam armazenados como documentos JSON, o que pode gerar inconsistências caso as estruturas variem ao longo do tempo.
+
+### 2️⃣ Facilidade de Consulta e Manipulação 
+
+Bancos relacionais utilizam SQL (Structured Query Language), uma linguagem poderosa para realizar consultas complexas de maneira eficiente.
+No projeto, há a necessidade de buscar posts por palavras-chave e filtrar por data de coleta, algo que pode ser feito de forma otimizada com SQL e índices, sem necessidade de processar dados manualmente em código.
+
+### 3️⃣ Relacionamento e Expansibilidade
+
+Embora o projeto atualmente tenha uma única tabela (posts), um banco de dados relacional permite expansibilidade futura, possibilitando a criação de tabelas relacionadas.
+Se no futuro for necessário armazenar categorias, autores ou outros metadados dos posts, um modelo relacional facilitará a estruturação e a recuperação dos dados.
+
+### 4️⃣ Garantia de Persistência e Confiabilidade
+
+Diferente de armazenamentos temporários ou em memória, um banco de dados relacional oferece persistência dos dados de maneira confiável. Isso evita perda de informações em caso de falhas no sistema.
+
